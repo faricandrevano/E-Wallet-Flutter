@@ -1,4 +1,5 @@
 import 'package:dana/shared/theme.dart';
+import 'package:dana/ui/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,14 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text(
-            "hallo",
-            style: blackTextStyle.copyWith(fontSize: 30),
-          ),
-        ),
-      ),
+      home: SplashPage(),
     );
   }
 }
