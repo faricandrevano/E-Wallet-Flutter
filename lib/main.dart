@@ -1,3 +1,4 @@
+import 'package:dana/shared/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,10 +10,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Text("Faric Andrevano Sidharta"),
+        body: Center(
+          child: Text(
+            "hallo",
+            style: blackTextStyle.copyWith(fontSize: 30),
+          ),
+        ),
       ),
     );
   }
