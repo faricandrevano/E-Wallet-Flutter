@@ -1,4 +1,3 @@
-import 'package:dana/shared/theme.dart';
 import 'package:dana/ui/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
