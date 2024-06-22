@@ -8,11 +8,20 @@ class OnboardingPage extends StatefulWidget {
   @override
   State<OnboardingPage> createState() => _OnboardingPageState();
 }
+
 class _OnboardingPageState extends State<OnboardingPage> {
   CarouselController controllerCarousel = CarouselController();
   int pageIndex = 0;
-  final List<String> titleBoarding = ['Grow Your\nFinancial Today','Build From\nZero to Freedom','Start Together'];
-  final List<String> contentBoarding = ['Our system is helping you to\nachieve a better goal','We provide tips for you so that\nyou can adapt easier','We will guide you to where\nyou wanted it too'];
+  final List<String> titleBoarding = [
+    'Grow Your\nFinancial Today',
+    'Build From\nZero to Freedom',
+    'Start Together'
+  ];
+  final List<String> contentBoarding = [
+    'Our system is helping you to\nachieve a better goal',
+    'We provide tips for you so that\nyou can adapt easier',
+    'We will guide you to where\nyou wanted it too'
+  ];
   @override
   Widget build(BuildContext context) {
     final List<Widget> imageCarousel = [
@@ -76,62 +85,101 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       fontWeight: regular,
                     ),
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: pageIndex == 2 ? 38 : 50,
                   ),
-                  Row(
-                    children: [
-                      Container(
-                        width: 12,
-                        height: 12,
-                        margin: const EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: pageIndex == 0 ? blueColor : lightBackgroundColor ,
+                  if (pageIndex != 2)
+                    Row(
+                      children: [
+                        Container(
+                          width: 12,
+                          height: 12,
+                          margin: const EdgeInsets.only(right: 10),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: pageIndex == 0
+                                ? blueColor
+                                : lightBackgroundColor,
+                          ),
                         ),
-                      ),
-                      Container(
-                        width: 12,
-                        height: 12,
-                        margin: const EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: pageIndex == 1 ? blueColor : lightBackgroundColor,
+                        Container(
+                          width: 12,
+                          height: 12,
+                          margin: const EdgeInsets.only(right: 10),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: pageIndex == 1
+                                ? blueColor
+                                : lightBackgroundColor,
+                          ),
                         ),
-                      ),
-                      Container(
-                        width: 12,
-                        height: 12,
-                        margin: const EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: pageIndex == 2 ? blueColor : lightBackgroundColor,
+                        Container(
+                          width: 12,
+                          height: 12,
+                          margin: const EdgeInsets.only(right: 10),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: pageIndex == 2
+                                ? blueColor
+                                : lightBackgroundColor,
+                          ),
                         ),
-                      ),
-                      const Spacer(),
-                      // ignore: sized_box_for_whitespace
-                      Container(
-                        width: 150,
-                        height: 50,
-                        child: TextButton(
-                          style: TextButton.styleFrom(
-                            backgroundColor: purpleColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(56),
+                        const Spacer(),
+                        SizedBox(
+                          width: 150,
+                          height: 50,
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              backgroundColor: purpleColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(56),
+                              ),
+                            ),
+                            onPressed: () {
+                              controllerCarousel.nextPage();
+                            },
+                            child: Text(
+                              'Continue',
+                              style:
+                                  whiteTextStyle.copyWith(fontWeight: semiBold),
                             ),
                           ),
-                          onPressed: () {
-                            controllerCarousel.nextPage();
-                          },
-                          child: Text(
-                            'Continue',
-                            style:
-                                whiteTextStyle.copyWith(fontWeight: semiBold),
+                        )
+                      ],
+                    )
+                  else
+                    Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          height: 50,
+                          child: TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                              backgroundColor: purpleColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(56),
+                              ),
+                            ),
+                            child: Text(
+                              'Get Started',
+                              style: whiteTextStyle.copyWith(
+                                fontWeight: semiBold,
+                                fontSize: 16,
+                              ),
+                            ),
                           ),
                         ),
-                      )
-                    ],
-                  )
+                        const SizedBox(height: 14),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Sign In',
+                            style: greyTextStyle.copyWith(fontWeight: semiBold),
+                          ),
+                        )
+                      ],
+                    )
                 ],
               ),
             )
