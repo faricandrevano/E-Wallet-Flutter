@@ -2,9 +2,17 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dana/shared/theme.dart';
 import 'package:flutter/material.dart';
 
-class OnboardingPage extends StatelessWidget {
+class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
 
+  @override
+  State<OnboardingPage> createState() => _OnboardingPageState();
+}
+class _OnboardingPageState extends State<OnboardingPage> {
+  CarouselController controllerCarousel = CarouselController();
+  int pageIndex = 0;
+  final List<String> titleBoarding = ['Grow Your\nFinancial Today','Build From\nZero to Freedom','Start Together'];
+  final List<String> contentBoarding = ['Our system is helping you to\nachieve a better goal','We provide tips for you so that\nyou can adapt easier','We will guide you to where\nyou wanted it too'];
   @override
   Widget build(BuildContext context) {
     final List<Widget> imageCarousel = [
@@ -29,10 +37,16 @@ class OnboardingPage extends StatelessWidget {
           children: [
             CarouselSlider(
               items: imageCarousel,
+              carouselController: controllerCarousel,
               options: CarouselOptions(
                 height: 331,
                 viewportFraction: 1,
                 enableInfiniteScroll: false,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    pageIndex = index;
+                  });
+                },
               ),
             ),
             const SizedBox(height: 80),
@@ -46,7 +60,7 @@ class OnboardingPage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'Grow Your \nFinancial Today',
+                    titleBoarding[pageIndex],
                     textAlign: TextAlign.center,
                     style: blackTextStyle.copyWith(
                       fontSize: 20,
@@ -55,7 +69,7 @@ class OnboardingPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 26),
                   Text(
-                    'Our system is helping you to \nachieve a better goal',
+                    contentBoarding[pageIndex],
                     textAlign: TextAlign.center,
                     style: greyTextStyle.copyWith(
                       fontSize: 16,
@@ -73,7 +87,7 @@ class OnboardingPage extends StatelessWidget {
                         margin: const EdgeInsets.only(right: 10),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: blueColor,
+                          color: pageIndex == 0 ? blueColor : lightBackgroundColor ,
                         ),
                       ),
                       Container(
@@ -82,7 +96,7 @@ class OnboardingPage extends StatelessWidget {
                         margin: const EdgeInsets.only(right: 10),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: lightBackgroundColor,
+                          color: pageIndex == 1 ? blueColor : lightBackgroundColor,
                         ),
                       ),
                       Container(
@@ -91,7 +105,7 @@ class OnboardingPage extends StatelessWidget {
                         margin: const EdgeInsets.only(right: 10),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: lightBackgroundColor,
+                          color: pageIndex == 2 ? blueColor : lightBackgroundColor,
                         ),
                       ),
                       const Spacer(),
@@ -106,7 +120,9 @@ class OnboardingPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(56),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            controllerCarousel.nextPage();
+                          },
                           child: Text(
                             'Continue',
                             style:
