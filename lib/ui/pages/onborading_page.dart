@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dana/shared/theme.dart';
+import 'package:dana/ui/pages/sign_in_page.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -172,7 +173,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         ),
                         const SizedBox(height: 14),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SignIn(),
+                              ),
+                            );
+                          },
                           child: Text(
                             'Sign In',
                             style: greyTextStyle.copyWith(fontWeight: semiBold),
