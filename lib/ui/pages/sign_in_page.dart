@@ -34,51 +34,46 @@ class SignIn extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: lightBackgroundColor,
             ),
-            child: Column(
-              children: [
-                Form(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const CustomTextField(
-                        label: 'Email Address',
-                        obsecureText: false,
-                      ),
-                      const SizedBox(height: 16),
-                      const CustomTextField(
-                        label: 'Password',
-                        obsecureText: true,
-                      ),
-                      const SizedBox(height: 8),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: CustomGestureText(
-                          title: 'Forgot Password?',
-                          styleText: blueTextStyle,
-                          fontSize: 14,
-                          fontWeight: regular,
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-                      const CustomFilledButton(
-                        width: double.infinity,
-                        height: 50,
-                        title: 'Sign In',
-                      )
-                    ],
+            child: Form(
+              child: Column(
+                children: [
+                  const CustomTextField(
+                    label: 'Email Address',
+                    obsecureText: false,
                   ),
-                ),
-                const SizedBox(height: 70),
-                CustomGestureText(
-                  title: 'Create New Account',
-                  fontSize: 16,
-                  fontWeight: regular,
-                  styleText: blackTextStyle,
-                  onTap: () {
-                    Navigator.pushNamed(context, '/');
-                  },
-                )
-              ],
+                  const SizedBox(height: 16),
+                  const CustomTextField(
+                    label: 'Password',
+                    obsecureText: true,
+                  ),
+                  const SizedBox(height: 8),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: CustomGestureText(
+                      title: 'Forgot Password?',
+                      styleText: blueTextStyle,
+                      fontSize: 14,
+                      fontWeight: regular,
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  const CustomFilledButton(
+                    width: double.infinity,
+                    height: 50,
+                    title: 'Sign In',
+                  ),
+                  const SizedBox(height: 70),
+                  CustomGestureText(
+                    title: 'Create New Account',
+                    fontSize: 16,
+                    fontWeight: regular,
+                    styleText: greyTextStyle,
+                    onTap: () {
+                      Navigator.pushNamed(context, '/sign-up');
+                    },
+                  )
+                ],
+              ),
             ),
           )
         ],
