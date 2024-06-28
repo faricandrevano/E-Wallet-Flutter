@@ -1,4 +1,5 @@
 import 'package:dana/shared/theme.dart';
+import 'package:dana/ui/pages/onborading_page.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatelessWidget {
@@ -35,19 +36,96 @@ class SignIn extends StatelessWidget {
               children: [
                 Form(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          labelText: 'Email : ',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(14),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Email Adress',
+                            style: blackTextStyle.copyWith(fontWeight: medium),
+                          ),
+                          const SizedBox(height: 8),
+                          TextFormField(
+                            decoration: const InputDecoration(
+                              contentPadding: EdgeInsets.all(12),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(14),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                      TextFormField(),
+                      const SizedBox(height: 16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Password',
+                            style: blackTextStyle.copyWith(fontWeight: medium),
+                          ),
+                          const SizedBox(height: 8),
+                          TextFormField(
+                            obscureText: true,
+                            decoration: const InputDecoration(
+                              contentPadding: EdgeInsets.all(12),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(14),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              'Forgot Password?',
+                              style: blueTextStyle,
+                            ),
+                          ),
+                          const SizedBox(height: 30),
+                          TextButton(
+                            onPressed: () {},
+                            child: Container(
+                              width: double.infinity,
+                              height: 50,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: purpleColor,
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(56),
+                                ),
+                              ),
+                              child: Text(
+                                'Sign In',
+                                style: whiteTextStyle.copyWith(
+                                  fontSize: 16,
+                                  fontWeight: semiBold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
                     ],
+                  ),
+                ),
+                const SizedBox(height: 70),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OnboardingPage(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Create New Account',
+                    style: blackTextStyle.copyWith(fontSize: 16),
                   ),
                 )
               ],
