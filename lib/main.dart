@@ -1,3 +1,5 @@
+import 'package:dana/ui/pages/onborading_page.dart';
+import 'package:dana/ui/pages/sign_in_page.dart';
 import 'package:dana/ui/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +12,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashPage(),
+        '/onboarding': (context) => const OnboardingPage(),
+        '/sign-in': (context) => const SignIn()
+      },
     );
   }
 }

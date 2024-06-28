@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dana/shared/theme.dart';
-import 'package:dana/ui/pages/sign_in_page.dart';
 import 'package:dana/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -145,23 +144,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           height: 50,
                           title: 'Get Started',
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SignIn(),
-                              ),
-                            );
+                            Navigator.pushNamed(context, '/sign-in');
                           },
                         ),
                         const SizedBox(height: 14),
                         TextButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SignIn(),
-                              ),
-                            );
+                            Navigator.pushNamed(context, '/sign-in');
                           },
                           child: Text(
                             'Sign In',

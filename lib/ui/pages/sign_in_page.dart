@@ -1,7 +1,7 @@
 import 'package:dana/shared/theme.dart';
-import 'package:dana/ui/pages/splash_page.dart';
 import 'package:dana/ui/widgets/buttons.dart';
 import 'package:dana/ui/widgets/gesture_text.dart';
+import 'package:dana/ui/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatelessWidget {
@@ -40,63 +40,30 @@ class SignIn extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Email Adress',
-                            style: blackTextStyle.copyWith(fontWeight: medium),
-                          ),
-                          const SizedBox(height: 8),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              contentPadding: EdgeInsets.all(12),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(14),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                      const CustomTextField(
+                        label: 'Email Address',
+                        obsecureText: false,
                       ),
                       const SizedBox(height: 16),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Password',
-                            style: blackTextStyle.copyWith(fontWeight: medium),
-                          ),
-                          const SizedBox(height: 8),
-                          TextFormField(
-                            obscureText: true,
-                            decoration: const InputDecoration(
-                              contentPadding: EdgeInsets.all(12),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(14),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: CustomGestureText(
-                              title: 'Forgot Password?',
-                              styleText: blueTextStyle,
-                              fontSize: 14,
-                              fontWeight: regular,
-                            ),
-                          ),
-                          const SizedBox(height: 30),
-                          CustomFilledButton(
-                            width: double.infinity,
-                            height: 50,
-                            title: 'Sign In',
-                          )
-                        ],
+                      const CustomTextField(
+                        label: 'Password',
+                        obsecureText: true,
+                      ),
+                      const SizedBox(height: 8),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: CustomGestureText(
+                          title: 'Forgot Password?',
+                          styleText: blueTextStyle,
+                          fontSize: 14,
+                          fontWeight: regular,
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      const CustomFilledButton(
+                        width: double.infinity,
+                        height: 50,
+                        title: 'Sign In',
                       )
                     ],
                   ),
@@ -108,12 +75,7 @@ class SignIn extends StatelessWidget {
                   fontWeight: regular,
                   styleText: blackTextStyle,
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SplashPage(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/');
                   },
                 )
               ],
