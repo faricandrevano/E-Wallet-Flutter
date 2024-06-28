@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dana/shared/theme.dart';
 import 'package:dana/ui/pages/sign_in_page.dart';
+import 'package:dana/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -126,50 +127,31 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           ),
                         ),
                         const Spacer(),
-                        SizedBox(
+                        CustomFilledButton(
                           width: 150,
                           height: 50,
-                          child: TextButton(
-                            style: TextButton.styleFrom(
-                              backgroundColor: purpleColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(56),
-                              ),
-                            ),
-                            onPressed: () {
-                              controllerCarousel.nextPage();
-                            },
-                            child: Text(
-                              'Continue',
-                              style:
-                                  whiteTextStyle.copyWith(fontWeight: semiBold),
-                            ),
-                          ),
-                        )
+                          title: 'Continue',
+                          onPressed: () {
+                            controllerCarousel.nextPage();
+                          },
+                        ),
                       ],
                     )
                   else
                     Column(
                       children: [
-                        SizedBox(
+                        CustomFilledButton(
                           width: double.infinity,
                           height: 50,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              backgroundColor: purpleColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(56),
+                          title: 'Get Started',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SignIn(),
                               ),
-                            ),
-                            child: Text(
-                              'Get Started',
-                              style: whiteTextStyle.copyWith(
-                                fontWeight: semiBold,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
+                            );
+                          },
                         ),
                         const SizedBox(height: 14),
                         TextButton(

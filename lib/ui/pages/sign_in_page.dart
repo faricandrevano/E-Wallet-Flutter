@@ -1,5 +1,7 @@
 import 'package:dana/shared/theme.dart';
-import 'package:dana/ui/pages/onborading_page.dart';
+import 'package:dana/ui/pages/splash_page.dart';
+import 'package:dana/ui/widgets/buttons.dart';
+import 'package:dana/ui/widgets/gesture_text.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatelessWidget {
@@ -81,52 +83,38 @@ class SignIn extends StatelessWidget {
                           const SizedBox(height: 8),
                           Align(
                             alignment: Alignment.centerRight,
-                            child: Text(
-                              'Forgot Password?',
-                              style: blueTextStyle,
+                            child: CustomGestureText(
+                              title: 'Forgot Password?',
+                              styleText: blueTextStyle,
+                              fontSize: 14,
+                              fontWeight: regular,
                             ),
                           ),
                           const SizedBox(height: 30),
-                          TextButton(
-                            onPressed: () {},
-                            child: Container(
-                              width: double.infinity,
-                              height: 50,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: purpleColor,
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(56),
-                                ),
-                              ),
-                              child: Text(
-                                'Sign In',
-                                style: whiteTextStyle.copyWith(
-                                  fontSize: 16,
-                                  fontWeight: semiBold,
-                                ),
-                              ),
-                            ),
-                          ),
+                          CustomFilledButton(
+                            width: double.infinity,
+                            height: 50,
+                            title: 'Sign In',
+                          )
                         ],
                       )
                     ],
                   ),
                 ),
                 const SizedBox(height: 70),
-                GestureDetector(
+                CustomGestureText(
+                  title: 'Create New Account',
+                  fontSize: 16,
+                  fontWeight: regular,
+                  styleText: blackTextStyle,
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => OnboardingPage(),
+                        builder: (context) => const SplashPage(),
                       ),
                     );
                   },
-                  child: Text(
-                    'Create New Account',
-                    style: blackTextStyle.copyWith(fontSize: 16),
-                  ),
                 )
               ],
             ),
