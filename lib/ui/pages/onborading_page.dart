@@ -41,11 +41,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
     ];
     return Scaffold(
       backgroundColor: lightBackgroundColor,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CarouselSlider(
+      body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 22),
+        children: [
+          Container(
+            margin: const EdgeInsets.only(top: 100, bottom: 100),
+            child: CarouselSlider(
               items: imageCarousel,
               carouselController: controllerCarousel,
               options: CarouselOptions(
@@ -59,111 +60,105 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 },
               ),
             ),
-            const SizedBox(height: 80),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 24),
-              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 22),
-              decoration: BoxDecoration(
-                color: whiteColor,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                children: [
-                  Text(
-                    titleBoarding[pageIndex],
-                    textAlign: TextAlign.center,
-                    style: blackTextStyle.copyWith(
-                      fontSize: 20,
-                      fontWeight: semiBold,
-                    ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 22),
+            decoration: BoxDecoration(
+              color: whiteColor,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              children: [
+                Text(
+                  titleBoarding[pageIndex],
+                  textAlign: TextAlign.center,
+                  style: blackTextStyle.copyWith(
+                    fontSize: 20,
+                    fontWeight: semiBold,
                   ),
-                  const SizedBox(height: 26),
-                  Text(
-                    contentBoarding[pageIndex],
-                    textAlign: TextAlign.center,
-                    style: greyTextStyle.copyWith(
-                      fontSize: 16,
-                      fontWeight: regular,
-                    ),
+                ),
+                const SizedBox(height: 26),
+                Text(
+                  contentBoarding[pageIndex],
+                  textAlign: TextAlign.center,
+                  style: greyTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: regular,
                   ),
-                  SizedBox(
-                    height: pageIndex == 2 ? 38 : 50,
-                  ),
-                  if (pageIndex != 2)
-                    Row(
-                      children: [
-                        Container(
-                          width: 12,
-                          height: 12,
-                          margin: const EdgeInsets.only(right: 10),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: pageIndex == 0
-                                ? blueColor
-                                : lightBackgroundColor,
-                          ),
+                ),
+                SizedBox(height: pageIndex == 2 ? 38 : 50),
+                if (pageIndex != 2)
+                  Row(
+                    children: [
+                      Container(
+                        width: 12,
+                        height: 12,
+                        margin: const EdgeInsets.only(right: 10),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color:
+                              pageIndex == 0 ? blueColor : lightBackgroundColor,
                         ),
-                        Container(
-                          width: 12,
-                          height: 12,
-                          margin: const EdgeInsets.only(right: 10),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: pageIndex == 1
-                                ? blueColor
-                                : lightBackgroundColor,
-                          ),
+                      ),
+                      Container(
+                        width: 12,
+                        height: 12,
+                        margin: const EdgeInsets.only(right: 10),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color:
+                              pageIndex == 1 ? blueColor : lightBackgroundColor,
                         ),
-                        Container(
-                          width: 12,
-                          height: 12,
-                          margin: const EdgeInsets.only(right: 10),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: pageIndex == 2
-                                ? blueColor
-                                : lightBackgroundColor,
-                          ),
+                      ),
+                      Container(
+                        width: 12,
+                        height: 12,
+                        margin: const EdgeInsets.only(right: 10),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color:
+                              pageIndex == 2 ? blueColor : lightBackgroundColor,
                         ),
-                        const Spacer(),
-                        CustomFilledButton(
-                          width: 150,
-                          height: 50,
-                          title: 'Continue',
-                          onPressed: () {
-                            controllerCarousel.nextPage();
-                          },
+                      ),
+                      const Spacer(),
+                      CustomFilledButton(
+                        width: 150,
+                        height: 50,
+                        title: 'Continue',
+                        onPressed: () {
+                          controllerCarousel.nextPage();
+                        },
+                      ),
+                    ],
+                  )
+                else
+                  Column(
+                    children: [
+                      CustomFilledButton(
+                        width: double.infinity,
+                        height: 50,
+                        title: 'Get Started',
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/sign-up');
+                        },
+                      ),
+                      const SizedBox(height: 14),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/sign-in');
+                        },
+                        child: Text(
+                          'Sign In',
+                          style: greyTextStyle.copyWith(fontWeight: semiBold),
                         ),
-                      ],
-                    )
-                  else
-                    Column(
-                      children: [
-                        CustomFilledButton(
-                          width: double.infinity,
-                          height: 50,
-                          title: 'Get Started',
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/sign-up');
-                          },
-                        ),
-                        const SizedBox(height: 14),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/sign-in');
-                          },
-                          child: Text(
-                            'Sign In',
-                            style: greyTextStyle.copyWith(fontWeight: semiBold),
-                          ),
-                        )
-                      ],
-                    )
-                ],
-              ),
-            )
-          ],
-        ),
+                      )
+                    ],
+                  )
+              ],
+            ),
+          ),
+          const SizedBox(height: 40)
+        ],
       ),
     );
   }

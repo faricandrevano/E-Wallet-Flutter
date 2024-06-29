@@ -1,10 +1,10 @@
 import 'package:dana/shared/theme.dart';
 import 'package:dana/ui/widgets/buttons.dart';
-import 'package:dana/ui/widgets/text_field.dart';
+import 'package:dana/ui/widgets/gesture_text.dart';
 import 'package:flutter/material.dart';
 
-class SignUpPictureUpload extends StatelessWidget {
-  const SignUpPictureUpload({super.key});
+class SignUpKtpUpload extends StatelessWidget {
+  const SignUpKtpUpload({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,30 +25,21 @@ class SignUpPictureUpload extends StatelessWidget {
               ),
             ),
             Text(
-              'Join Us to Unlock\nYour Growth',
-              style:
-                  blackTextStyle.copyWith(fontSize: 20, fontWeight: semiBold),
+              'Verify Your\nAccount',
+              style: blackTextStyle.copyWith(
+                fontSize: 20,
+                fontWeight: semiBold,
+              ),
             ),
             const SizedBox(height: 30),
             Container(
               padding: const EdgeInsets.all(22),
               decoration: BoxDecoration(
                 color: whiteColor,
-                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
                 children: [
-                  // Container(
-                  //   width: 120,
-                  //   height: 120,
-                  //   decoration: const BoxDecoration(
-                  //     shape: BoxShape.circle,
-                  //     image: DecorationImage(
-                  //       image: AssetImage('assets/img_tips1.png'),
-                  //       fit: BoxFit.cover,
-                  //     ),
-                  //   ),
-                  // ),
                   Container(
                     width: 120,
                     height: 120,
@@ -60,36 +51,37 @@ class SignUpPictureUpload extends StatelessWidget {
                       child: Image.asset(
                         'assets/icon_export.png',
                         width: 32,
-                        height: 32,
                       ),
                     ),
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'Faric Andrevano',
+                    'Passport/ID Card',
                     style: blackTextStyle.copyWith(
                       fontSize: 18,
                       fontWeight: medium,
                     ),
                   ),
-                  const SizedBox(height: 30),
-                  const CustomTextField(
-                    label: 'Set PIN (6 digit number)',
-                    obsecureText: true,
-                  ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 50),
                   CustomFilledButton(
                     width: double.infinity,
                     height: 50,
                     title: 'Continue',
-                    onPressed: () => Navigator.pushNamed(
-                      context,
-                      '/sign-up/upload-ktp',
-                    ),
+                    onPressed: () {},
                   )
                 ],
               ),
-            )
+            ),
+            const SizedBox(height: 60),
+            Align(
+              child: CustomGestureText(
+                title: 'Skip for Now',
+                styleText: greyTextStyle,
+                fontSize: 16,
+                fontWeight: regular,
+              ),
+            ),
+            const SizedBox(height: 60),
           ],
         ),
       ),
