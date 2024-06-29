@@ -11,9 +11,9 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: whiteColor,
+        color: lightBackgroundColor,
         child: ListView(
-          padding: EdgeInsets.all(24),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           children: [
             Container(
               width: 155,
@@ -23,7 +23,7 @@ class SignUp extends StatelessWidget {
                   image: AssetImage('assets/img_logo_white.png'),
                 ),
               ),
-              margin: const EdgeInsets.symmetric(vertical: 100),
+              margin: const EdgeInsets.only(top: 100, bottom: 100),
             ),
             Text(
               'Join Us to Unlock\nYour Growth',
@@ -34,7 +34,7 @@ class SignUp extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(22),
               decoration: BoxDecoration(
-                color: lightBackgroundColor,
+                color: whiteColor,
                 borderRadius: const BorderRadius.all(
                   Radius.circular(20),
                 ),
@@ -51,10 +51,14 @@ class SignUp extends StatelessWidget {
                     const CustomTextField(
                         label: 'Password', obsecureText: true),
                     const SizedBox(height: 30),
-                    const CustomFilledButton(
+                    CustomFilledButton(
                       width: double.infinity,
                       height: 50,
                       title: 'Continue',
+                      onPressed: () => Navigator.pushNamed(
+                        context,
+                        '/sign-up/upload-pic',
+                      ),
                     ),
                     const SizedBox(height: 72),
                     CustomGestureText(

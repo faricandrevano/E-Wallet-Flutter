@@ -11,6 +11,7 @@ Color greenColor = const Color(0xff22B07D);
 Color redColor = const Color(0xffFF2566);
 Color numberBackgroundColor = const Color(0xff1A1D2E);
 Color purpleColor = const Color(0xff5142E6);
+Color profileImport = const Color(0xffF1F1F9);
 
 TextStyle blackTextStyle = GoogleFonts.poppins(
   color: blackColor,

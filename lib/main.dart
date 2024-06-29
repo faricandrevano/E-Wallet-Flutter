@@ -1,6 +1,7 @@
 import 'package:dana/ui/pages/onborading_page.dart';
 import 'package:dana/ui/pages/sign_in_page.dart';
 import 'package:dana/ui/pages/sign_up_page.dart';
+import 'package:dana/ui/pages/sign_up_picture_upload.dart';
 import 'package:dana/ui/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashPage(),
         '/onboarding': (context) => const OnboardingPage(),
         '/sign-in': (context) => const SignIn(),
-        '/sign-up': (context) => const SignUp()
+        '/sign-up': (context) => const SignUp(),
+        '/sign-up/upload-pic': (context) => const SignUpPictureUpload()
       },
     );
   }

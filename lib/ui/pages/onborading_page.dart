@@ -144,7 +144,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           height: 50,
                           title: 'Get Started',
                           onPressed: () {
-                            Navigator.pushNamed(context, '/sign-in');
+                            Navigator.pushNamed(context, '/sign-up');
                           },
                         ),
                         const SizedBox(height: 14),
