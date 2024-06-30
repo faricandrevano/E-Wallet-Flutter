@@ -79,6 +79,7 @@ class SignUpKtpUpload extends StatelessWidget {
                 styleText: greyTextStyle,
                 fontSize: 16,
                 fontWeight: regular,
+                onTap: () => Navigator.pushNamed(context, '/sign-up/success'),
               ),
             ),
             const SizedBox(height: 60),

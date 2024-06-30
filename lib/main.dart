@@ -3,6 +3,7 @@ import 'package:dana/ui/pages/sign_in_page.dart';
 import 'package:dana/ui/pages/sign_up_ktp_upload.dart';
 import 'package:dana/ui/pages/sign_up_page.dart';
 import 'package:dana/ui/pages/sign_up_picture_upload.dart';
+import 'package:dana/ui/pages/sign_up_success_page.dart';
 import 'package:dana/ui/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
         '/sign-in': (context) => const SignIn(),
         '/sign-up': (context) => const SignUp(),
         '/sign-up/upload-pic': (context) => const SignUpPictureUpload(),
-        '/sign-up/upload-ktp': (context) => const SignUpKtpUpload()
+        '/sign-up/upload-ktp': (context) => const SignUpKtpUpload(),
+        '/sign-up/success': (context) => const SignUpSuccesPage()
       },
     );
   }

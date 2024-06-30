@@ -40,10 +40,7 @@ class SignIn extends StatelessWidget {
               child: Form(
                 child: Column(
                   children: [
-                    const CustomTextField(
-                      label: 'Email Address',
-                      obsecureText: false,
-                    ),
+                    const CustomTextField(label: 'Email Address'),
                     const SizedBox(height: 16),
                     const CustomTextField(
                       label: 'Password',

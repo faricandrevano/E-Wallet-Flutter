@@ -38,32 +38,32 @@ class SignUpPictureUpload extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  // Container(
-                  //   width: 120,
-                  //   height: 120,
-                  //   decoration: const BoxDecoration(
-                  //     shape: BoxShape.circle,
-                  //     image: DecorationImage(
-                  //       image: AssetImage('assets/img_tips1.png'),
-                  //       fit: BoxFit.cover,
-                  //     ),
-                  //   ),
-                  // ),
                   Container(
                     width: 120,
                     height: 120,
-                    decoration: BoxDecoration(
-                      color: profileImport,
-                      borderRadius: BorderRadius.circular(80),
-                    ),
-                    child: Center(
-                      child: Image.asset(
-                        'assets/icon_export.png',
-                        width: 32,
-                        height: 32,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage('assets/img_people1.png'),
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
+                  // Container(
+                  //   width: 120,
+                  //   height: 120,
+                  //   decoration: BoxDecoration(
+                  //     color: profileImport,
+                  //     borderRadius: BorderRadius.circular(80),
+                  //   ),
+                  //   child: Center(
+                  //     child: Image.asset(
+                  //       'assets/icon_export.png',
+                  //       width: 32,
+                  //       height: 32,
+                  //     ),
+                  //   ),
+                  // ),
                   const SizedBox(height: 16),
                   Text(
                     'Faric Andrevano',
@@ -76,6 +76,10 @@ class SignUpPictureUpload extends StatelessWidget {
                   const CustomTextField(
                     label: 'Set PIN (6 digit number)',
                     obsecureText: true,
+                    lengthText: 6,
+                    letterSpacing: 40,
+                    showCursor: false,
+                    keyboardType: TextInputType.number,
                   ),
                   const SizedBox(height: 30),
                   CustomFilledButton(
